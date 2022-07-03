@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :logs
+  resources :tasks
+  resources :projects
+  resources :members
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   get 'home/about'
   get 'home/index'
