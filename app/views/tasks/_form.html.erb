@@ -1,0 +1,67 @@
+<%= form_with(model: task) do |form| %>
+  <% if task.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+        <% task.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :Topic, style: "display: block" %>
+    <%= form.text_field :Topic %>
+  </div>
+
+  <div>
+    <%= form.label :Description, style: "display: block" %>
+    <%= form.text_field :Description %>
+  </div>
+
+  <div>
+    <%= form.label :StartDate, style: "display: block" %>
+    <%= form.date_field :StartDate %>
+  </div>
+
+  <div>
+    <%= form.label :ExpireDate, style: "display: block" %>
+    <%= form.date_field :ExpireDate %>
+  </div>
+
+  <div>
+    <%= form.label :Type, style: "display: block" %>
+    <%= form.number_field :Type %>
+  </div>
+
+  <div>
+    <%= form.label :Priority, style: "display: block" %>
+    <%= form.number_field :Priority %>
+  </div>
+
+  <div>
+    <%= form.label :Comments, style: "display: block" %>
+    <%= form.text_field :Comments %>
+  </div>
+
+  <div>
+    <%= form.label :ExecutorUID, style: "display: block" %>
+    <%= form.number_field :ExecutorUID %>
+  </div>
+
+  <div>
+    <%= form.label :AuthorUID, style: "display: block" %>
+    <%= form.number_field :AuthorUID %>
+  </div>
+
+  <div>
+    <%= form.label :ProjectID, style: "display: block" %>
+    <%= form.number_field :ProjectID %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

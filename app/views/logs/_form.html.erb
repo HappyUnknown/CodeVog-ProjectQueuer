@@ -1,0 +1,37 @@
+<%= form_with(model: log) do |form| %>
+  <% if log.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(log.errors.count, "error") %> prohibited this log from being saved:</h2>
+
+      <ul>
+        <% log.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :DateRecieved, style: "display: block" %>
+    <%= form.date_field :DateRecieved %>
+  </div>
+
+  <div>
+    <%= form.label :DateFinished, style: "display: block" %>
+    <%= form.date_field :DateFinished %>
+  </div>
+
+  <div>
+    <%= form.label :Comment, style: "display: block" %>
+    <%= form.text_field :Comment %>
+  </div>
+
+  <div>
+    <%= form.label :TaskID, style: "display: block" %>
+    <%= form.number_field :TaskID %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
