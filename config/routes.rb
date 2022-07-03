@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+  devise_for :users
+>>>>>>> 02e5b70 (Credentials management without logout)
   resources :logs
   resources :tasks
   resources :projects
