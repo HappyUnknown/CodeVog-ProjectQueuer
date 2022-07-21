@@ -6,9 +6,9 @@
   <% @logs.each do |log| %>
     <%= render log %>
     <p>
-      <%= link_to "Show this log", log %>
+      <%= link_to "Show this log", log, class:"btn btn-secondary" %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New log", new_log_path %>
+<%= link_to "New log", new_log_path, class:"btn btn-success" %>

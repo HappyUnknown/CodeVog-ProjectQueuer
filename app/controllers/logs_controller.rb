@@ -21,15 +21,16 @@ class LogsController < ApplicationController
 
   # POST /logs or /logs.json
   def create
-    @log = Log.new(log_params)
-
-    respond_to do |format|
-      if @log.save
-        format.html { redirect_to log_url(@log), notice: "Log was successfully created." }
-        format.json { render :show, status: :created, location: @log }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @log.errors, status: :unprocessable_entity }
+    if project_exists
+      @log = Log.new(log_params)
+      respond_to do |format|
+        if @log.save
+          format.html { redirect_to log_url(@log), notice: "Log was successfully created." }
+          format.json { render :show, status: :created, location: @log }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @log.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -67,4 +68,16 @@ class LogsController < ApplicationController
     def log_params
       params.require(:log).permit(:DateRecieved, :DateFinished, :Comment, :TaskID)
     end
+
+    def project_exists
+      begin
+        taskID = log_params[:TaskID]
+        taskOnIDIsNull = Project.find(taskID).nil?
+        puts "]=====================================> " + taskID.to_s
+        puts "]=====================================> " + taskOnIDIsNull.to_s
+        return true
+      rescue
+        return false
+      end
+    end    
 end

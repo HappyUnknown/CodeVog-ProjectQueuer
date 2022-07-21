@@ -1,10 +1,19 @@
 <p style="color: green"><%= notice %></p>
-
-<%= render @task %>
+<!--<%= render @task %>-->
+<div class="jumbotron">
+  <h1 class="display-4">[ID-<%=@task.id%>] <%=@task.Topic%></h1>
+  <p class="lead"><%=@task.Description%></p>
+  <hr class="my-4">
+  <p>[<%=@task.StartDate%> - <%=@task.ExpireDate%>]</p>
+  <p>Type-<%=@task.Type%>, Priority-<%=@task.Priority%></p>
+  <p>ExecutorUID-<%=@task.ExecutorUID%>, AuthorUID-<%=@task.AuthorUID%>, ProjectID-<%=@task.ProjectID%></p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 
 <div>
-  <%= link_to "Edit this task", edit_task_path(@task) %> |
-  <%= link_to "Back to tasks", tasks_path %>
-
-  <%= button_to "Destroy this task", @task, method: :delete %>
+  <%= link_to "Edit this task", edit_task_path(@task), class:"btn btn-warning" %>
+  <%= link_to "Destroy this task", @task, method: :delete, class:"btn btn-danger" %>
+  
 </div>
+<br/>
+  <%= button_to "Back to tasks", tasks_path, class:"btn btn-info" %>

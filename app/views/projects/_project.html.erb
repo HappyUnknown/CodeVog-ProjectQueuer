@@ -1,17 +1,23 @@
-<div id="<%= dom_id project %>">
-  <p>
-    <strong>Name:</strong>
+<!--<div id="<%= dom_id project %>">-->
+  <tr style="border: grey 3px solid; border-bottom: none; border-right: none;border-left: none;">
+    <td>
     <%= project.Name %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Description:</strong>
+  <td>
     <%= project.Description %>
-  </p>
+  </td>
 
-  <p>
-    <strong>Viewcode:</strong>
+  <td>
     <%= project.ViewCode %>
-  </p>
+  </td>
 
-</div>
+  <td>
+    <%= link_to "Show this project", project, class:"btn btn-secondary" %>
+  </td>
+
+  <td>
+    <%= link_to "Show by key", "/projects/#{project.ViewCode}", class:"btn btn-secondary" %>
+  </td>
+  </tr>
+<!--</div>-->

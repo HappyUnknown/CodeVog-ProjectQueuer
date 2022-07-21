@@ -1,10 +1,18 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @member %>
+<!--<%= render @member %>-->
+<div class="jumbotron">
+  <h1 class="display-4">[ID-<%=@member.id%>] <%=@member.LastName%> <%=@member.FirstName%></h1>
+  <p class="lead"><%=@member.BirthDate%>, <%=@member.Occupation%></p>
+  <hr class="my-4">
+  <p><%=@member.ProfileImage%></p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+</div>
 
 <div>
-  <%= link_to "Edit this member", edit_member_path(@member) %> |
-  <%= link_to "Back to members", members_path %>
-
-  <%= button_to "Destroy this member", @member, method: :delete %>
+   <!-- <%= button_to "Edit this member", edit_member_path(@member), class:"btn btn-warning" %> -->
+  <%= link_to "Edit this member", edit_member_path(@member), class:"btn btn-warning" %>
+  <%= link_to "Destroy this member", @member, method: :delete, class:"btn btn-danger" %>
 </div>
+<br/>
+  <%= button_to "Back to members", members_path, class:"btn btn-info" %>

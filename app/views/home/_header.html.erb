@@ -1,23 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!--<%= link_to 'HOME', root_path, class:"nav-link" %>-->
-        <a class="nav-link" href="/home/index">HOME</a>
-        <a class="nav-link" href="/home/about">ABOUT</a>
-        <%= link_to 'Members', members_path, class:"nav-link" %>
-        <%= link_to 'Projects', projects_path, class:"nav-link" %>
-        <%= link_to 'Tasks', tasks_path, class:"nav-link" %>
-        <%= link_to 'Logs', logs_path, class:"nav-link" %>
-
-        <%= link_to 'Login', new_user_session_url, class:"nav-link" %>
-        <%= link_to 'Logout', destroy_user_session_url, class:"nav-link" %>
-        <%= link_to 'Register', new_user_registration_path, class:"nav-link" %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark container-fluid" style="justify-content: space-between;">
+      <div class="left" style="display:flex; flex-direction: row;">
+        <a class="navbar-brand" href="/">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div style="display:flex; flex-direction: row">
+            <!--<%= link_to 'HOME', root_path, class:"nav-link" %>-->
+            <a class="nav-link" href="/home/index">HOME</a>
+            <a class="nav-link" href="/home/about">ABOUT</a>
+            <%= link_to 'Members', members_path, class:"nav-link" %>
+            <%= link_to 'Projects', projects_path, class:"nav-link" %>
+            <%= link_to 'Tasks', tasks_path, class:"nav-link" %>
+            <%= link_to 'Logs', logs_path, class:"nav-link" %>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  </nav>
+      <div class="right" style="display:flex; flex-direction: row;">
+        <%if user_signed_in?%>
+        <%= link_to 'Profile', edit_user_registration_url, class:"nav-link" %>
+        <%= link_to current_user.email, "#", {:style=>'display:flex;justify-content:flex-end', :class => 'nav-link'} %>
+        <%= link_to 'Logout', destroy_user_session_path, class:"nav-link" %>
+        <%else%>
+        <%= link_to 'Login', new_user_session_url, class:"nav-link" %>
+        <%= link_to 'Register', new_user_registration_path, class:"nav-link" %>
+        <%end%>
+      </div>
+</nav>

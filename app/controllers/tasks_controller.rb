@@ -21,15 +21,16 @@ class TasksController < ApplicationController
 
   # POST /tasks or /tasks.json
   def create
-    @task = Task.new(task_params)
-
-    respond_to do |format|
-      if @task.save
-        format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
-        format.json { render :show, status: :created, location: @task }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
+    if project_exists && executor_exists && author_exists
+      @task = Task.new(task_params)
+      respond_to do |format|
+        if @task.save
+          format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
+          format.json { render :show, status: :created, location: @task }
+        else
+          format.html { render :new, status: :unprocessable_entity }
+          format.json { render json: @task.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -66,5 +67,39 @@ class TasksController < ApplicationController
     # Only allow a list of trusted parameters through.
     def task_params
       params.require(:task).permit(:Topic, :Description, :StartDate, :ExpireDate, :Type, :Priority, :Comments, :ExecutorUID, :AuthorUID, :ProjectID)
+    end
+
+    def project_exists
+      begin
+        projectID = task_params[:ProjectID]
+        projectOnIDIsNull = Project.find(projectID).nil?
+        puts "]=====================================> " + projectID.to_s
+        puts "]=====================================> " + projectOnIDIsNull.to_s
+        return true
+      rescue
+        return false
+      end
+    end    
+    def executor_exists
+      begin
+        userID = task_params[:ExecutorUID]
+        userOnIDIsNull = Project.find(userID).nil?
+        puts "]=====================================> " + userID.to_s
+        puts "]=====================================> " + userID.to_s
+        return true
+      rescue
+        return false
+      end
+    end    
+    def author_exists
+      begin
+        userID = task_params[:AuthorUID]
+        userOnIDIsNull = Project.find(userID).nil?
+        puts "]=====================================> " + userID.to_s
+        puts "]=====================================> " + userID.to_s
+        return true
+      rescue
+        return false
+      end
     end
 end
