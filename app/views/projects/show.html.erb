@@ -7,7 +7,7 @@
 </div>
 <div>
   <%= link_to "Edit this project", edit_project_path(@project), class:"btn btn-warning" %>
-  <%= button_to "Destroy this project", @project, method: :delete %>
+  <%= link_to "Destroy this project", @project, method: :delete, class:"btn btn-danger" %>
 </div>
 <br/>
   <!--<%= button_to "Back to projects", projects_path, class:"btn btn-info" %>-->
