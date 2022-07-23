@@ -1,11 +1,11 @@
 <h1><%= notice %></h1>
-
 <h1>Projects</h1>
 
 <div id="projects">
   <%if @project.nil? %>
   <table>
     <tr>
+      <td><strong>ID</strong></td>
       <td><strong>Name</strong></td>
       <td><strong>Description</strong></td>
       <td><strong>ViewCode</strong></td>
@@ -18,5 +18,5 @@
   </table>
   <%end%>
 </div>
-
+<br/>
 <%= link_to "New project", new_project_path, class:"btn btn-success"  %>

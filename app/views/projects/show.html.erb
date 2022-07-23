@@ -5,9 +5,10 @@
   <p><%=@project.ViewCode%></p>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
-<div>
+<div style="display:flex;flex-direction: row;">
   <%= link_to "Edit this project", edit_project_path(@project), class:"btn btn-warning" %>
-  <%= link_to "Destroy this project", @project, method: :delete, class:"btn btn-danger" %>
+  <%= button_to "Destroy this project", @project, method: :delete, class:"btn btn-danger" %>
+  <!--ONLY DELETS FROM BUTTON-->
 </div>
 <br/>
   <!--<%= button_to "Back to projects", projects_path, class:"btn btn-info" %>-->

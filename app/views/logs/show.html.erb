@@ -7,9 +7,9 @@
   <p>TaskID-<%=@log.TaskID%></p>
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
-<div>
+<div style="display:flex;flex-direction: row;">
   <%= link_to "Edit this log", edit_log_path(@log), class:"btn btn-warning" %>
-  <%= link_to "Destroy this log", @log, method: :delete, class:"btn btn-danger" %>
+  <%= button_to "Destroy this log", @log, method: :delete, class:"btn btn-danger" %>
 </div>
 <br/>
 <%= link_to "Back to logs", logs_path, class:"btn btn-info" %>

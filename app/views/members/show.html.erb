@@ -9,10 +9,10 @@
   <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
 </div>
 
-<div>
+<div style="display:flex;flex-direction: row;">
    <!-- <%= button_to "Edit this member", edit_member_path(@member), class:"btn btn-warning" %> -->
   <%= link_to "Edit this member", edit_member_path(@member), class:"btn btn-warning" %>
-  <%= link_to "Destroy this member", @member, method: :delete, class:"btn btn-danger" %>
+  <%= button_to "Destroy this member", @member, method: :delete, class:"btn btn-danger" %>
 </div>
 <br/>
   <%= button_to "Back to members", members_path, class:"btn btn-info" %>
