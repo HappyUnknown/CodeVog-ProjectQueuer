@@ -3,6 +3,7 @@
 <h1>Projects</h1>
 
 <div id="projects">
+  <%unless @project %>
   <table>
     <tr>
       <td><strong>Name</strong></td>
@@ -15,6 +16,7 @@
     <%= render project %>
   <% end %>
   </table>
+  <%end%>
 </div>
 
 <%= link_to "New project", new_project_path, class:"btn btn-success"  %>
