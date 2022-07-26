@@ -17,3 +17,42 @@
 </div>
 <br/>
   <%= button_to "Back to tasks", tasks_path, class:"btn btn-info" %>
+
+  <table style="height: 500px;width: 500px; margin: 25px;" class="table" title="Logs on Task-id">
+   <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">DateRecieved</th>
+      <th scope="col">DateFinished</th>
+      <th scope="col">Comment</th>
+      <th scope="col">TaskID</th>
+      <th scope="col"/>
+    </tr>
+  </thead>
+  <tbody>
+  <% Log.all.each do |l|%>
+  <% if l.TaskID==@task.id%>
+  <tr>
+    <th scope="row">
+      <%= l.id %>
+    </td>
+    <td>
+      <%= l.DateRecieved %>
+    </td>
+    <td>
+        <%= l.DateFinished %>
+    </td>
+    <td>
+      <%= l.Comment %>
+    </td>
+    <td>
+      <%= l.TaskID %>
+    </td>
+    <td>
+      <%= link_to "GO","/logs/"+l.id.to_s,class:"btn btn-info" %> 
+    </td>
+  </tr>
+  <%end%>
+  <%end%>
+  </tbody>
+</table>

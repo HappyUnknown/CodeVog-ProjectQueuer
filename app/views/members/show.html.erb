@@ -16,3 +16,66 @@
 </div>
 <br/>
   <%= button_to "Back to members", members_path, class:"btn btn-info" %>
+
+  <table style="height: 500px;width: 500px; margin: 25px;" class="table" title="Tasks on Member-id">
+   <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Topic</th>
+      <th scope="col">Description</th>
+      <th scope="col">StartDate</th>
+      <th scope="col">ExpireDate</th>
+      <th scope="col">Type</th>
+      <th scope="col">Priority</th>
+      <th scope="col">Comments</th>
+      <th scope="col">ExecutorUID</th>
+      <th scope="col">AuthorUID</th>
+      <th scope="col">ProjectID</th>
+      <th scope="col"/>
+    </tr>
+  </thead>
+  <tbody>
+  <% Task.all.each do |t|%>
+  <% if t.AuthorUID==@member.id%>
+  <tr>
+    <th scope="row">
+      <%= t.id %>
+    </td>
+    <td>
+      <%= t.Topic %>
+    </td>
+    <td>
+        <%= t.Description %>
+    </td>
+    <td>
+      <%= t.StartDate %>
+    </td>
+    <td>
+      <%= t.ExpireDate %>
+    </td>
+    <td>
+      <%= t.Type %>
+    </td>
+    <td>
+      <%= t.Priority %>
+    </td>
+    <td>
+      <%= t.Comments %>
+    </td>
+    <td>
+      <%= t.ExecutorUID %>
+    </td>
+    <td>
+      <%= t.AuthorUID %>
+    </td>
+    <td>
+      <%= t.ProjectID %>
+    </td>
+    <td>
+      <%= link_to "GO","/tasks/"+t.id.to_s,class:"btn btn-info" %> 
+    </td>
+  </tr>
+  <%end%>
+  <%end%>
+  </tbody>
+</table>

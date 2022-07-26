@@ -13,22 +13,22 @@
 
   <div>
     <%= form.label :DateRecieved, style: "display: block" %>
-    <%= form.date_field :DateRecieved %>
+    <%= form.date_field :DateRecieved, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :DateFinished, style: "display: block" %>
-    <%= form.date_field :DateFinished %>
+    <%= form.date_field :DateFinished, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :Comment, style: "display: block" %>
-    <%= form.text_field :Comment %>
+    <%= form.text_field :Comment, class:"form-control" %>
   </div>
 
   <div>
     <%= form.label :TaskID, style: "display: block" %>
-    <%= form.number_field :TaskID %>
+    <%= form.select(:TaskID, options_for_select(Task.all.map(&:id))) %>
   </div>
 
   <div>
