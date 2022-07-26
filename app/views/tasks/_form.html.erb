@@ -38,7 +38,7 @@
 
   <div>
     <%= form.label :Priority, style: "display: block" %>
-    <%= form.number_field :Priority %>
+    <%= form.select(:Priority, options_for_select([["1",1],["2",2],["3",3]])) %>
   </div>
 
   <div>
@@ -48,17 +48,17 @@
 
   <div>
     <%= form.label :ExecutorUID, style: "display: block" %>
-    <%= form.number_field :ExecutorUID %>
+    <%= form.select(:ExecutorUID, options_for_select(Member.all.map(&:id))) %>
   </div>
 
   <div>
     <%= form.label :AuthorUID, style: "display: block" %>
-    <%= form.number_field :AuthorUID %>
+    <%= form.select(:AuthorUID, options_for_select(Member.all.map(&:id))) %>
   </div>
 
   <div>
     <%= form.label :ProjectID, style: "display: block" %>
-    <%= form.number_field :ProjectID %>
+    <%= form.select(:ProjectID, options_for_select(Project.all.map(&:id))) %>
   </div>
 
   <div>
