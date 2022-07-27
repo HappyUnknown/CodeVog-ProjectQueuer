@@ -18,7 +18,8 @@
 <br/>
   <%= button_to "Back to tasks", tasks_path, class:"btn btn-info" %>
 
-  <table style="height: 500px;width: 500px; margin: 25px;" class="table" title="Logs on Task-id">
+  <% if Log.all.length > 0 %>
+   <table style="height: 500px;width: 500px; margin: 25px;" class="table" title="Logs on Task-id">
    <thead>
     <tr>
       <th scope="col">id</th>
@@ -31,7 +32,7 @@
   </thead>
   <tbody>
   <% Log.all.each do |l|%>
-  <% if l.TaskID==@task.id%>
+  <% if l.TaskID == @task.id%>
   <tr>
     <th scope="row">
       <%= l.id %>
@@ -52,6 +53,7 @@
       <%= link_to "GO","/logs/"+l.id.to_s,class:"btn btn-info" %> 
     </td>
   </tr>
+  <%end%>
   <%end%>
   <%end%>
   </tbody>

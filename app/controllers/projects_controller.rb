@@ -64,7 +64,7 @@ class ProjectsController < ApplicationController
       end
     else
       puts "CANNOT CREATE WITH THIS VIEWCODE"
-      @flash_msg = "ABOOBA"
+      @flash_msg = "CANNOT CREATE WITH THIS VIEWCODE"
       render partial: 'layouts/alerts'
       #flash.now[:notice] = 'Alert'
       return

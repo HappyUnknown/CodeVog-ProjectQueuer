@@ -32,6 +32,9 @@ class TasksController < ApplicationController
           format.json { render json: @task.errors, status: :unprocessable_entity }
         end
       end
+    else
+      @flash_msg = "CANNOT CREATE WITH THIS FOREIGN KEYS"
+      render partial: 'layouts/alerts'
     end
   end
 
@@ -83,7 +86,7 @@ class TasksController < ApplicationController
     def executor_exists
       begin
         userID = task_params[:ExecutorUID]
-        userOnIDIsNull = Project.find(userID).nil?
+        userOnIDIsNull = User.find(userID).nil?
         puts "]=====================================> " + userID.to_s
         puts "]=====================================> " + userID.to_s
         return true
@@ -94,7 +97,7 @@ class TasksController < ApplicationController
     def author_exists
       begin
         userID = task_params[:AuthorUID]
-        userOnIDIsNull = Project.find(userID).nil?
+        userOnIDIsNull = User.find(userID).nil?
         puts "]=====================================> " + userID.to_s
         puts "]=====================================> " + userID.to_s
         return true

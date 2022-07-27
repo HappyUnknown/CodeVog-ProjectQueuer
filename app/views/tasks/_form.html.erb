@@ -33,7 +33,7 @@
 
   <div>
     <%= form.label :Type, style: "display: block" %>
-    <%= form.number_field :Type, class:"form-control" %>
+    <%= form.select(:Type, options_for_select([["1",1],["2",2],["3",3]])) %>
   </div>
 
   <div>

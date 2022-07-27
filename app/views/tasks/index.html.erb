@@ -3,11 +3,15 @@
 <h1>Tasks</h1>
 
 <div id="tasks">
+  <% unless current_user.nil? %>
   <% @tasks.each do |task| %>
+  <% if task.ExecutorUID == current_user.id || task.AuthorUID == current_user.id || current_user.userRole == 1 %>
     <%= render task %>
     <p>
       <%= link_to "Show this task", task, class:"btn btn-secondary" %>
     </p>
+  <% end %>
+  <% end %>
   <% end %>
 </div>
 
