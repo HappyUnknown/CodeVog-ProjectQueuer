@@ -1,4 +1,9 @@
-<p style="color: green"><%= notice %></p>
+<html>
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <p style="color: green"><%= notice %></p>
 <!--<%= render @task %>-->
 <div class="jumbotron">
   <h1 class="display-4">[ID-<%=@task.id%>] <%=@task.Topic%></h1>
@@ -48,9 +53,11 @@
       <%= l.Comment %>
     </td>
     <td>       
-      <% if l.TaskID == @task.id%>
-       <%= l.TaskID %> (<%=@task.Topic%>)
-     <%end%>
+       <% Project.all.each do |p|%>
+  <% if p.id == t.ProjectID%>
+ <%= t.ProjectID %> (<%=p.Name%>)
+ <%end%>
+ <%end%>
     </td>
     <td>
       <%= link_to "GO","/logs/"+l.id.to_s,class:"btn btn-info" %>
@@ -61,3 +68,4 @@
   <%end%>
   </tbody>
 </table>
+</html>
