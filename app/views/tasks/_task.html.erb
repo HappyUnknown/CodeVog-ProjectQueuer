@@ -22,11 +22,13 @@
   <p>
     <strong>Type:</strong>
     <%= task.Type %>
-  </p>
+    — <strong> <%=@task_types[task] %></strong>
+</p>
 
   <p>
     <strong>Priority:</strong>
     <%= task.Priority %>
+    — <strong> <%=@task_priority[1] %></strong>
   </p>
 
   <p>
@@ -37,16 +39,33 @@
   <p>
     <strong>Executoruid:</strong>
     <%= task.ExecutorUID %>
+    <% User.all.each do |u|%>
+    <% if task.ExecutorUID==u.id%>
+    — <strong> <%= link_to u.email,"/users/"+u.id.to_s %></strong>
+    <%end%>
+    <%end%>
+  </p>
   </p>
 
   <p>
     <strong>Authoruid:</strong>
     <%= task.AuthorUID %>
+    <% User.all.each do |u|%>
+    <% if task.AuthorUID==u.id%>
+    — <strong> <%= link_to u.email,"/users/"+u.id.to_s %></strong>
+    <%end%>
+    <%end%>
   </p>
 
   <p>
     <strong>Projectid:</strong>
     <%= task.ProjectID %>
+    <% Project.all.each do |p|%>
+    <% if task.ProjectID==p.id%>
+    — <strong> <%= link_to p.Name,"/projects/"+p.id.to_s %></strong>
+    <%end%>
+    <%end%>
+
   </p>
 
 </div>

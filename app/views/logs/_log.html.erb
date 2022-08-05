@@ -17,6 +17,13 @@
   <p>
     <strong>Taskid:</strong>
     <%= log.TaskID %>
+
+    <% Task.all.each do |t|%>
+    <% if log.TaskID==t.id%>
+    — <strong> <%= link_to t.Topic,"/tasks/"+t.id.to_s %></strong>
+    <%end%>
+    <%end%>
+  </p>
   </p>
 
 </div>

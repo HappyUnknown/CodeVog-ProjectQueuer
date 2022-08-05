@@ -3,15 +3,23 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
+    @task_priority = {1 => "Low", 2 => "Medium", 3 => "High"}
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
     @tasks = Task.all
   end
 
   # GET /tasks/1 or /tasks/1.json
   def show
+    @task_priority = {1 => "Low", 2 => "Medium", 3 => "High"}
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
   end
 
   # GET /tasks/new
   def new
+    @member_hash = User.all.collect {|u| [ u.email, u.id ] }
+    @project_hash = Project.all.collect{|p|[p.Name, p.id]}
+    @task_priority = {1 => "Low", 2 => "Medium", 3 => "High"}
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
     @task = Task.new
   end
 

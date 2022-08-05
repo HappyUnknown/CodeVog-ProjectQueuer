@@ -8,10 +8,13 @@ class LogsController < ApplicationController
 
   # GET /logs/1 or /logs/1.json
   def show
+
   end
 
   # GET /logs/new
   def new
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
+    @task_priority = {1 => "Low", 2 => "Medium", 3 => "High"}
     @log = Log.new
   end
 

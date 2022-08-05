@@ -53,22 +53,34 @@
       <%= t.ExpireDate %>
     </td>
     <td>
-      <%= t.Type %>
+      <%= t.Type %> (<%=@task_types[t.Type]%>)
     </td>
     <td>
-      <%= t.Priority %>
+      <%= t.Priority %> (<%=@task_priority[t.Priority]%>)
     </td>
     <td>
       <%= t.Comments %>
     </td>
     <td>
-      <%= t.ExecutorUID %>
+       <% User.all.each do |u|%>
+  <% if u.id == t.ExecutorUID%>
+ <%= t.ExecutorUID %> (<%=u.email%>)
+ <%end%>
+ <%end%>
     </td>
     <td>
-      <%= t.AuthorUID %>
+       <% User.all.each do |u|%>
+  <% if u.id == t.AuthorUID%>
+ <%= t.AuthorUID %> (<%=u.email%>)
+ <%end%>
+ <%end%>
     </td>
     <td>
-      <%= t.ProjectID %>
+       <% Project.all.each do |p|%>
+  <% if p.id == t.ProjectID%>
+ <%= t.ProjectID %> (<%=p.Name%>)
+ <%end%>
+ <%end%>
     </td>
     <td>
       <%= link_to "GO","/tasks/"+t.id.to_s,class:"btn btn-info" %>      

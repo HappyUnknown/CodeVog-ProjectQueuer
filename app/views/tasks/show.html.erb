@@ -28,6 +28,7 @@
       <th scope="col">Comment</th>
       <th scope="col">TaskID</th>
       <th scope="col"/>
+      <th scope="col"/>
     </tr>
   </thead>
   <tbody>
@@ -46,11 +47,13 @@
     <td>
       <%= l.Comment %>
     </td>
-    <td>
-      <%= l.TaskID %>
+    <td>       
+      <% if l.TaskID == @task.id%>
+       <%= l.TaskID %> (<%=@task.Topic%>)
+     <%end%>
     </td>
     <td>
-      <%= link_to "GO","/logs/"+l.id.to_s,class:"btn btn-info" %> 
+      <%= link_to "GO","/logs/"+l.id.to_s,class:"btn btn-info" %>
     </td>
   </tr>
   <%end%>

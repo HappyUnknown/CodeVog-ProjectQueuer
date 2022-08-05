@@ -1,9 +1,14 @@
-<h1><%= notice %></h1>
+<html>
+<head>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1><%= notice %></h1>
 <h1>Projects</h1>
 
 <div id="projects">
   <%if @project.nil? %>
-  <table>
+  <table class="">
     <tr>
       <td><strong>ID</strong></td>
       <td><strong>Name</strong></td>
@@ -20,3 +25,5 @@
 </div>
 <br/>
 <%= link_to "New project", new_project_path, class:"btn btn-success"  %>
+</body>
+</html>

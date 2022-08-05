@@ -12,6 +12,9 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1 or /projects/1.json
   def show
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
+    @task_priority = {1 => "Low", 2 => "Medium", 3 => "High"}
+
     current = nil
     id = true
     begin
@@ -27,6 +30,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    @task_types = {1=>"Desktop", 2=>"Mobile", 3=>"Web app", 4=>"Crossplatform", 5=>"Game"}
     @project = Project.new
   end
 

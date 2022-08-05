@@ -33,12 +33,14 @@
 
   <div>
     <%= form.label :Type, style: "display: block" %>
-    <%= form.select(:Type, options_for_select([["1",1],["2",2],["3",3]])) %>
+    <%= form.select(:Type, options_for_select([[@task_types[1],1],[@task_types[2],2],[@task_types[3],3],[@task_types[4],4],[@task_types[5],5]])) %>
+    <!--<%= form.select(:Type, options_for_select(@task_types)) %>-->
   </div>
 
   <div>
     <%= form.label :Priority, style: "display: block" %>
-    <%= form.select(:Priority, options_for_select([["1",1],["2",2],["3",3]])) %>
+    <%= form.select(:Priority, options_for_select([[@task_priority[1],1],[@task_priority[2],2],[@task_priority[3],3]])) %>
+    <!--<%= form.select(:Priority, options_for_select([["1",1],["2",2],["3",3]])) %>-->
   </div>
 
   <div>
@@ -48,17 +50,18 @@
 
   <div>
     <%= form.label :ExecutorUID, style: "display: block" %>
-    <%= form.select(:ExecutorUID, options_for_select(Member.all.map(&:id))) %>
+    <%=form.select(:ExecutorUID, options_for_select(@member_hash)) %>
+    <!--<%= form.select(:ExecutorUID, options_for_select(Member.all.map(&:id))) %>-->
   </div>
 
   <div>
     <%= form.label :AuthorUID, style: "display: block" %>
-    <%= form.select(:AuthorUID, options_for_select(Member.all.map(&:id))) %>
+    <%= form.select(:AuthorUID, options_for_select(@member_hash)) %>
   </div>
 
   <div>
     <%= form.label :ProjectID, style: "display: block" %>
-    <%= form.select(:ProjectID, options_for_select(Project.all.map(&:id))) %>
+    <%= form.select(:ProjectID, options_for_select(@project_hash)) %>
   </div>
 
   <div>

@@ -28,7 +28,8 @@
 
   <div>
     <%= form.label :TaskID, style: "display: block" %>
-    <%= form.select(:TaskID, options_for_select(Task.all.map(&:id))) %>
+    <%= form.select(:TaskID, options_for_select([[@task_priority[1],1],[@task_priority[2],2],[@task_priority[3],3]])) %>
+    <!--<%= form.select(:TaskID, options_for_select(Task.all.map(&:id))) %>-->
   </div>
 
   <div>
